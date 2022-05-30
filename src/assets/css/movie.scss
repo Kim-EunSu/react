@@ -1,0 +1,18 @@
+.movie_inner {
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1%;
+
+        li {
+            width: 24%;
+
+            a {
+                color: #fff;
+            }
+        }
+    }
+}
+
+.movie__search {
+}
