@@ -13,7 +13,7 @@ class ReferTab_html extends React.Component {
         data: { htmlRefer },
       },
     } = await axios.get(
-      "https://kim-eunsu.github.io/react/src/assets/referhtml.json"
+      "https://raw.githubusercontent.com/Kim-EunSu/json/main/referhtml.json"
     );
 
     console.log(htmlRefer);
