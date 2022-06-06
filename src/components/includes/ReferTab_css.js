@@ -1,40 +1,47 @@
-import axios from 'axios';
-import React from 'react';
-import ReferCont from './ReferCont';
+import axios from "axios";
+import React from "react";
+import ReferCont from "./ReferCont";
 
 class ReferTab_css extends React.Component {
-    state = {
-        refers: [],
-    };
+  state = {
+    refers: [],
+  };
 
-    getReferscss = async () => {
-        const {
-            data: {
-                data: { cssRefer },
-            },
-        } = await axios.get('https://raw.githubusercontent.com/stronghasu/react/main/cssrefer.json');
+  getReferscss = async () => {
+    const {
+      data: {
+        data: { cssRefer },
+      },
+    } = await axios.get(
+      "https://kim-eunsu.github.io/react/src/assets/refercss.json"
+    );
 
-        console.log(cssRefer);
-        this.setState({ refers: cssRefer });
-    };
+    console.log(cssRefer);
+    this.setState({ refers: cssRefer });
+  };
 
-    componentDidMount() {
-        this.getReferscss();
-    }
+  componentDidMount() {
+    this.getReferscss();
+  }
 
-    render() {
-        const { refers } = this.state;
+  render() {
+    const { refers } = this.state;
 
-        console.log(refers);
+    console.log(refers);
 
-        return (
-            <ul className="refer__list">
-                {refers.map(refer => (
-                    <ReferCont key={refer.id} id={refer.id} title={refer.title} desc={refer.desc} />
-                ))}
-            </ul>
-        );
-    }
+    return (
+      <ul className="refer__list">
+        {refers.map((refer) => (
+          <ReferCont
+            key={refer.id}
+            id={refer.id}
+            title={refer.title}
+            desc={refer.desc}
+          />
+        ))}
+      </ul>
+    );
+  }
 }
 
 // function ReferTab_css() {

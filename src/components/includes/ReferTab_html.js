@@ -1,40 +1,48 @@
-import axios from 'axios';
-import React from 'react';
-import ReferCont from '../includes/ReferCont';
+import axios from "axios";
+import React from "react";
+import ReferCont from "../includes/ReferCont";
 
 class ReferTab_html extends React.Component {
-    state = {
-        refers: [],
-    };
+  state = {
+    refers: [],
+  };
 
-    getRefershtml = async () => {
-        const {
-            data: {
-                data: { htmlRefer },
-            },
-        } = await axios.get('https://webstoryboy.github.io/react2022/src/assets/json/refer.json');
+  getRefershtml = async () => {
+    const {
+      data: {
+        data: { htmlRefer },
+      },
+    } = await axios.get(
+      "https://kim-eunsu.github.io/react/src/assets/referhtml.json"
+    );
 
-        console.log(htmlRefer);
-        this.setState({ refers: htmlRefer });
-    };
+    console.log(htmlRefer);
+    this.setState({ refers: htmlRefer });
+  };
 
-    componentDidMount() {
-        this.getRefershtml();
-    }
+  componentDidMount() {
+    this.getRefershtml();
+  }
 
-    render() {
-        const { refers } = this.state;
+  render() {
+    const { refers } = this.state;
 
-        console.log(refers);
+    console.log(refers);
 
-        return (
-            <ul className="refer__list">
-                {refers.map(refer => (
-                    <ReferCont key={refer.id} id={refer.id} title={refer.title} desc={refer.desc} use={refer.use} />
-                ))}
-            </ul>
-        );
-    }
+    return (
+      <ul className="refer__list">
+        {refers.map((refer) => (
+          <ReferCont
+            key={refer.id}
+            id={refer.id}
+            title={refer.title}
+            desc={refer.desc}
+            use={refer.use}
+          />
+        ))}
+      </ul>
+    );
+  }
 }
 
 // function ReferTab_html() {
